@@ -29,9 +29,11 @@ export class DetailsPage {
 }
 
 export interface result{
-  title:string;
-  author:string;
-  date:string;
-  image:string;
+  original_title:string;
+  overview : string;
+  tagline:string;
+  release_date:string;
+  poster_path:string;
+
 
 }

@@ -9,17 +9,17 @@
 
 <ion-content padding>
   <ion-searchbar
-  (iput)="getElements($event)"
+  (input)="getElements($event)"
   >
   </ion-searchbar>
   <ion-list>   
       <ion-item *ngIf = "resultat.length == 0">Aucun résultat</ion-item>
-      <ion-item *ngFor="let result of resultat">
+      <ion-item *ngFor="let result of resultat | async">
           <ion-thumbnail item-start >
-            <img [src]="result.image">
+            <img src="https://image.tmdb.org/t/p/w92/{{result.poster_path}}">
           </ion-thumbnail>
-          <h2>{{result.title}}</h2>
-          <p>{{result.author}} • {{result.date}}</p>
+          <h2>{{result.original_title}}</h2>
+          <p>{{result.overview}} • {{result.release_date}}</p>
           <button ion-button clear item-end (click)="goToDetails(result)">View</button>
         </ion-item> 
   </ion-list>
